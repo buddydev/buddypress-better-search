@@ -2,9 +2,10 @@
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-add_filter( 'the_content', 'buddyboss_global_search_search_page_content', 9 );
+add_filter( 'the_content', 'buddyboss_global_search_search_page_content', 11 );
 
 function buddyboss_global_search_search_page_content( $content ){
+
     /**
      * Reportedly, on some installations, the remove_filter call below, doesn't work and this filter is called over and over again.
      * Possibly due to some other plugin/theme.
@@ -15,7 +16,7 @@ function buddyboss_global_search_search_page_content( $content ){
     global $bpgs_main_content_filter_has_run;
     
 	if( !is_admin() && is_search() && 'yes' != $bpgs_main_content_filter_has_run ){
-			remove_filter( 'the_content', 'buddyboss_global_search_search_page_content', 9 );
+			remove_filter( 'the_content', 'buddyboss_global_search_search_page_content', 11 );
             $bpgs_main_content_filter_has_run = 'yes';
 			//setup search resutls and all..
 			buddyboss_global_search()->search->prepare_search_page();
