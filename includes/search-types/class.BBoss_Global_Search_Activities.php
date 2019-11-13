@@ -105,7 +105,7 @@ if (!class_exists('BBoss_Global_Search_Activities')):
 			if( bp_has_activities( array( 'include'=>$post_ids, 'per_page'=>count($post_ids_arr) ) ) ){
 				while ( bp_activities() ){
 					bp_the_activity();
-
+					do_action( 'bb_search_the_activity' );
 					$result = array(
 						'id'	=> bp_get_activity_id(),
 						'type'	=> $this->type,

@@ -229,6 +229,7 @@ if (!class_exists('BBoss_Global_Search_Members')):
 			if( bp_has_members( array( 'type' => 'alphabetical', 'search_terms' => '', 'include'=>implode(',', $group_ids), 'per_page'=>count($group_ids) ) ) ){
 				while ( bp_members() ){
 					bp_the_member();
+					do_action('bb_search_the_member');
 
 					$result_item = array(
 						'id'	=> bp_get_member_user_id(),

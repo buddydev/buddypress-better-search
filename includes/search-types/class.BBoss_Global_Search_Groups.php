@@ -168,6 +168,7 @@ if (!class_exists('BBoss_Global_Search_Groups')):
 			if( bp_has_groups( $args ) ){
 				while ( bp_groups() ){
 					bp_the_group();
+					do_action( 'bb_search_the_group' );
 
 					$result = array(
 						'id'	=> bp_get_group_id(),

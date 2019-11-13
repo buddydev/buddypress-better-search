@@ -104,6 +104,7 @@ if (!class_exists('BBoss_Global_Search_Activity_Comment')):
 
 				while ( bp_activities() ){
 					bp_the_activity();
+					do_action( 'bb_search_the_activity_comment' );
 
 					$result = array(
 						'id'	=> bp_get_activity_id(),

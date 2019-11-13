@@ -147,7 +147,8 @@ if (!class_exists('BBoss_Global_Search_Posts')):
 
 			if( $qry->have_posts() ){
 				while( $qry->have_posts() ){
-					$qry->the_post();	
+					$qry->the_post();
+					do_action( 'bb_search_the_post' );
 					$result = array(
 						'id'	=> get_the_ID(),
 						'type'	=> $this->search_type,
